@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="fe1098f7-6973-4ff2-ae94-58631a8dd163" activeEnvironment="Default" name="Chaincode Tutorial REST" resourceRoot="" soapui-version="5.3.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:RestService" id="b8144552-d811-40d9-9448-3315147617f6" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://localhost:7050" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>http://localhost:7050</con:endpoint></con:endpoints><con:resource name="" path="chain" id="b41d0737-1ded-4d38-ab10-6337fe031a0a"><con:settings/><con:parameters/><con:method name="1" id="a37932ef-6dfb-402a-99d4-700ce22bcd69" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:cha="http://localhost/chain">cha:Response</con:element></con:representation><con:request name="Request 1" id="98ca82b1-2683-430f-a827-948922c627c7" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:7050</con:endpoint><con:request/><con:originalUri>http://localhost/chain</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource><con:resource name="chaincode" path="/chaincode" id="58531cf8-afa4-402a-8ff3-a87205c082b7"><con:settings/><con:parameters/><con:method name="Deploy" id="3207b3cc-2fd9-41a2-844e-edca38600d4f" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:cha="http://localhost/chaincode">cha:Response</con:element></con:representation><con:request name="ChaincodeLog Deploy" id="9913e647-296a-4c3c-8b70-3476919b6146" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:7050</con:endpoint><con:request>{
+"jsonrpc": "2.0",
+  "method": "deploy",
+  "params": {
+    "type": 4,
+    "chaincodeID":{
+        "name": "ChaincodeLogSmartContract"
+    },
+    "ctorMsg": {
+        "args": ["init", "KEY-1", "Chaincode Initialized"]
+    }
+  },
+  "id": 1
+}</con:request><con:originalUri>http://localhost/chaincode</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method><con:method name="Invoke" id="3207b3cc-2fd9-41a2-844e-edca38600d4f" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:cha="http://localhost/chaincode">cha:Response</con:element></con:representation><con:representation type="FAULT"><con:mediaType>application/json</con:mediaType><con:status>400</con:status><con:params/><con:element xmlns:cha="http://localhost/chaincode">cha:Fault</con:element></con:representation><con:request name="ChaincodeLog Query" id="9913e647-296a-4c3c-8b70-3476919b6146" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:7050</con:endpoint><con:request>{
+"jsonrpc": "2.0",
+  "method": "invoke",
+  "params": {
+    "type": 1,
+    "chaincodeID":{
+        "name": "ChaincodeLogSmartContract"
+    },
+    "ctorMsg": {
+        "args": ["query", "KEY-1", "KEY-2"]
+    }
+  },
+  "id": 3
+}</con:request><con:originalUri>http://localhost/chaincode</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request><con:request name="ChaincodeLog Log" id="9913e647-296a-4c3c-8b70-3476919b6146" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:7050</con:endpoint><con:request>{
+"jsonrpc": "2.0",
+  "method": "invoke",
+  "params": {
+    "type": 1,
+    "chaincodeID":{
+        "name": "ChaincodeLogSmartContract"
+    },
+    "CtorMsg": {
+        "args": ["log", "KEY-2", "This is a log message."]
+    }
+  },
+  "id": 2
+}</con:request><con:originalUri>http://localhost/chaincode</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
